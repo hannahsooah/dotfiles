@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+fd -H -t f 2>/dev/null |
+  fzf --preview='[[ $(file --mime {}) =~ binary ]] &&
+  echo {} is a binary file ||
+  (highlight -O ansi -l {} ||
+  coderay {} ||
+  rougify {} ||
+  cat {}) 2> /dev/null | head -500' | xargs -r "$EDITOR" ;
