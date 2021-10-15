@@ -1,7 +1,6 @@
 [user]
-  name = Richard Huang
-  email = richardhuang.huang@gmail.com
-  signingkey = 05C2EC94
+  name = Hannah Oh
+  email = hannahso@berkeley.edu
 
 [core]
   editor = nvim
