@@ -122,6 +122,7 @@ alias kubectl='kubecolor --force-colors'
 alias k='kubectl'
 alias ze="$EDITOR $HOME/dotfiles/zsh/.zshrc"
 alias ve="$EDITOR $HOME/dotfiles/nvim/.config/nvim/init.vim"
+alias va='vagrant up && vagrant ssh'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # >>> conda initialize >>>
@@ -139,3 +140,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
