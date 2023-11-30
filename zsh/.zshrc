@@ -106,35 +106,23 @@ done
 alias ls='ls -G'
 alias l='ls -lah'
 alias ll='ls -lh'
-alias rg='rg --hidden'
 alias g='git'
 alias t='tmux'
 alias v=$EDITOR
-alias rr='ranger'
-alias irc='weechat'
-alias less='less -R'
-alias sc='maim -s ~/screenshot.png'
-alias mpv='mpv --af=rubberband'
-alias emacs='emacs -nw'
-alias dc='docker-compose'
-alias d='docker'
-alias kubectl='kubecolor --force-colors'
-alias k='kubectl'
 alias ze="$EDITOR $HOME/dotfiles/zsh/.zshrc"
-alias ve="$EDITOR $HOME/dotfiles/nvim/.config/nvim/init.vim"
-alias va='vagrant up && vagrant ssh'
+alias va='cd cs162/cs162-vm && vagrant up && vagrant ssh'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hannahoh/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/hannahoh/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/hannahoh/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/hannahoh/opt/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/hannahoh/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/hannahoh/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/hannahoh/opt/anaconda3/bin:$PATH"
+        export PATH="/Users/hannahoh/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
