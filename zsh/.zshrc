@@ -43,7 +43,7 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit && prompt pure
 
 # Base16 Shell
-$HOME/.config/base16-shell/scripts/base16-nord.sh
+$HOME/dotfiles/base16/scripts/base16-nord.sh
 
 # ZSH Completions
 autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
