@@ -129,3 +129,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3
