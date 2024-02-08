@@ -3,7 +3,13 @@ alias antibody='antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh'
 [[ ! -f ~/.zsh_plugins.sh ]] && antibody
 source ~/.zsh_plugins.sh
 
-PURE_PROMPT_SYMBOL=λ
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden 2>/dev/null'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --preview-window right:70%'
 
 # ZSH Vi Mode
 bindkey -v
@@ -19,9 +25,9 @@ setopt hist_save_no_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt interactivecomments
-HISTSIZE=10000
+HISTSIZE=130000
 HISTFILE=~/.zsh_history
-SAVEHIST=10000
+SAVEHIST=130000
 
 # Up Arrow Completion
 autoload -U up-line-or-beginning-search
@@ -30,6 +36,14 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+
+# Pure Prompt
+PURE_PROMPT_SYMBOL=λ
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit && prompt pure
+
+# Base16 Shell
+$HOME/dotfiles/base16/scripts/base16-nord.sh
 
 # ZSH Completions
 autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
@@ -72,47 +86,22 @@ zstyle ':completion:*:*:kill:*' menu yes select
 # Environment Variables
 export TERM=xterm-256color
 export EDITOR=nvim
-export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/dotfiles/spells:$GOPATH/bin:$HOME/bin:$HOME/.cargo/bin
 export LESSHISTFILE=-
 export GPG_TTY=$(tty)
-export BAT_THEME=base16
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden 2>/dev/null'
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --preview-window right:70%'
-
-# Kubernetes
-# Set the default kube context if present
-DEFAULT_KUBE_CONTEXTS="$HOME/.kube/config"
-if [[ -f "${DEFAULT_KUBE_CONTEXTS}" ]]
-then
-	export KUBECONFIG="$DEFAULT_KUBE_CONTEXTS"
-fi
-# Additional contexts should be in ~/.kube/contexts
-CUSTOM_KUBE_CONTEXTS="$HOME/.kube/contexts"
-mkdir -p "$CUSTOM_KUBE_CONTEXTS"
-for context_file in `fd '.*.yml' -t f "$CUSTOM_KUBE_CONTEXTS"`
-do
-	export KUBECONFIG="$context_file:$KUBECONFIG"
-done
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Aliases
-alias ls='ls -G'
+alias e='et devvm21481.atn0.facebook.com:8080'
+alias e2='et devvm12278.ftw0.facebook.com:8080'
 alias l='ls -lah'
-alias ll='ls -lh'
 alias g='git'
 alias t='tmux'
 alias v=$EDITOR
 alias ze="$EDITOR $HOME/dotfiles/zsh/.zshrc"
-alias va='cd cs162/cs162-vm && vagrant up && vagrant ssh'
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
+<<<<<<< HEAD
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/hannahoh/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -126,9 +115,7 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
-export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
