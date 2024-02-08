@@ -11,6 +11,14 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden 2>/dev/null'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --preview-window right:70%'
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
+        
+base16_default
+
 # ZSH Vi Mode
 bindkey -v
 
@@ -97,6 +105,7 @@ alias e='et devvm21481.atn0.facebook.com:8080'
 alias e2='et devvm12278.ftw0.facebook.com:8080'
 alias l='ls -lah'
 alias g='git'
+alias st='git status'
 alias t='tmux'
 alias v=$EDITOR
 alias ze="$EDITOR $HOME/dotfiles/zsh/.zshrc"
