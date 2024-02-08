@@ -16,7 +16,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Tools
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'jamessan/vim-gnupg'
@@ -147,7 +147,6 @@ let NERDTreeDirArrows = 1
 
 " Aesthetics
 let base16colorspace=256
-colorscheme nord
 
 " Airline
 let g:airline_symbols = {}
