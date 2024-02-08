@@ -110,21 +110,6 @@ alias t='tmux'
 alias v=$EDITOR
 alias ze="$EDITOR $HOME/dotfiles/zsh/.zshrc"
 
-<<<<<<< HEAD
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hannahoh/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/hannahoh/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/hannahoh/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/hannahoh/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
