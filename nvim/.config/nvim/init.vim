@@ -23,7 +23,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/vim-easy-align'
 Plug 'azadkuh/vim-cmus'
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 " Writing
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}

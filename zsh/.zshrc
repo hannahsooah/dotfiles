@@ -16,8 +16,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         source "$BASE16_SHELL/profile_helper.sh"
-        
-base16_default
 
 # ZSH Vi Mode
 bindkey -v
@@ -101,6 +99,8 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Aliases
+alias cm='git commit -m'
+alias dif='git diff'
 alias e='et devvm21481.atn0.facebook.com:8080'
 alias e2='et devvm12278.ftw0.facebook.com:8080'
 alias l='ls -lah'
